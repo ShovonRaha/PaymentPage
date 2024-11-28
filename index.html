@@ -331,9 +331,10 @@
                 allFieldsFilled = allFieldsFilled && document.getElementById('name').value.trim() !== '' &&
                                   document.getElementById('card-number').value.trim() !== '' &&
                                   document.getElementById('expiry-date').value.trim() !== '' &&
-                                  document.getElementById('cvv').value.trim() !== '';
+                                  document.getElementById('cvv').value.trim() !== '' &&
+                                  validateCardNumber() && validateExpiryDate();
             } else if (paymentMethod === 'upi') {
-                allFieldsFilled = allFieldsFilled && document.getElementById('upi-id').value.trim() !== '';
+                allFieldsFilled = allFieldsFilled && document.getElementById('upi-id').value.trim() !== '' && validateUpiId();
             } else if (paymentMethod === 'netbanking') {
                 allFieldsFilled = allFieldsFilled && document.getElementById('bank').value !== '';
             } else if (paymentMethod === 'wallet') {
@@ -341,6 +342,24 @@
             }
 
             document.getElementById('pay-button').disabled = !allFieldsFilled;
+        }
+
+        function validateCardNumber() {
+            const cardNumber = document.getElementById('card-number').value.trim();
+            const regex = /^[0-9]{16}$/;
+            return regex.test(cardNumber);
+        }
+
+        function validateExpiryDate() {
+            const expiryDate = document.getElementById('expiry-date').value.trim();
+            const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            return regex.test(expiryDate);
+        }
+
+        function validateUpiId() {
+            const upiId = document.getElementById('upi-id').value.trim();
+            const regex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+$/;
+            return regex.test(upiId);
         }
 
         function showOtpForm() {

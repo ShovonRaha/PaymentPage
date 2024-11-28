@@ -220,7 +220,7 @@
             <section class="order-summary">
                 <h2>Order Summary</h2>
                 <p><strong>Restaurant:</strong> The Yellow Chilli</p>
-                <p><strong>Total Amount:</strong> $49</p>
+                <p><strong>Total Amount:</strong> $25</p> <!-- Changed from $49 to $25 -->
             </section>
 
             <section class="payment-form">
@@ -275,7 +275,7 @@
                         </select>
                     </div>
 
-                    <button type="button" id="pay-button" onclick="showOtpForm()" disabled>Pay ₹499</button>
+                    <button type="button" id="pay-button" onclick="showOtpForm()" disabled>Pay $25</button> <!-- Changed from $49 to $25 -->
                 </form>
             </section>
 
@@ -294,10 +294,10 @@
             <section id="payment-result" class="payment-result">
                 <div id="success" class="success">
                     <h2>Payment Successful!</h2>
-                    <p>Your payment of ₹499 has been completed successfully.</p>
+                    <p>Your payment of $25 has been completed successfully.</p> <!-- Changed from $49 to $25 -->
                     <button onclick="downloadReceipt()">Download Payment Receipt</button>
                     <!-- Home Button -->
-                    <a href="home-page.html" class="home-button" id="home-button">Go to Home</a>
+                    <a href="https://rishavgupta01.github.io/theyellowchilli.github.io/" class="home-button" id="home-button">Go to Home</a>
                 </div>
                 <div id="failure" class="failure">
                     <h2>Payment Failed!</h2>
@@ -390,7 +390,7 @@
         function downloadReceipt() {
             const currentDate = new Date();
             const formattedDate = currentDate.toLocaleString(); // Format date and time
-            const receiptText = `Payment Receipt\n\nRestaurant: The Yellow Chilli\nAmount: ₹499\nStatus: Payment Successful\nDate: ${formattedDate}\n\nThank you for your purchase!`;
+            const receiptText = `Payment Receipt\n\nRestaurant: The Yellow Chilli\nAmount: $25\nStatus: Payment Successful\nDate: ${formattedDate}\n\nThank you for your purchase!`;
             const blob = new Blob([receiptText], { type: 'text/plain' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
